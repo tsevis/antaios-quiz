@@ -1,1 +1,90 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AntA.I.os Self-Check Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #fafafa;
+            color: #333;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+        .question {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+        button {
+            margin-top: 1.5rem;
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            background-color: #0057a0;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003f75;
+        }
+        #result {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ AntA.I.os Self-Check Quiz</h1>
+    <form id="quizForm">
+        <div class="question"><label><input type="checkbox" name="q1"> Do I know what this tool does and why I use it?</label></div>
+        <div class="question"><label><input type="checkbox" name="q2"> Am I using AI to generate or just to imitate?</label></div>
+        <div class="question"><label><input type="checkbox" name="q3"> Is my work richer—or just faster?</label></div>
+        <div class="question"><label><input type="checkbox" name="q4"> Can I explain the choices in my process?</label></div>
+        <div class="question"><label><input type="checkbox" name="q5"> Does my work still reflect me?</label></div>
+        <button type="button" onclick="evaluateQuiz()">See Result</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function evaluateQuiz() {
+            const form = document.getElementById('quizForm');
+            const total = 5;
+            let score = 0;
+            for (let i = 0; i < total; i++) {
+                if (form.elements[i].checked) score++;
+            }
+
+            const result = document.getElementById('result');
+            if (score >= 4) {
+                result.textContent = "✅ You're on the AntA.I.os path! Stay grounded and purposeful.";
+            } else if (score >= 2) {
+                result.textContent = "🌀 You're in transition. Reflect more deeply on your AI strategy.";
+            } else {
+                result.textContent = "⚠️ Consider grounding your creative AI use with more clarity and purpose.";
+            }
+        }
+    </script>
+</body>
+</html>
